@@ -34,6 +34,8 @@ Route::get('/appointments', [AppointmentController::class, 'viewMemberAppointmen
 Route::get('/staff-appointments', [AppointmentController::class, 'viewStaffAppointments'])->name('viewStaffAppointments');
 Route::get('/all-appointments', [AppointmentController::class, 'viewAllAppointments'])->name('viewAllAppointments');
 
+Route::post('/update/{id}', [AppointmentController::class, 'updateAppointment'])->name('updateAppointment.post');
+
 // Delete appointment routes
 Route::delete('/member-appointment/{id}', [AppointmentController::class, 'destroyMemberAppointment'])->name('memberAppointment.destroy');
 Route::delete('/staff-appointment/{id}', [AppointmentController::class, 'destroyStaffAppointment'])->name('staffAppointment.destroy');

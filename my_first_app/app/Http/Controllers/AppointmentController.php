@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Appointment;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class AppointmentController extends Controller
@@ -54,6 +55,14 @@ class AppointmentController extends Controller
         $users = User::all()->sortBy('fname');
         $appointments = Appointment::all();
         return view('view_all_appointments', ['users'=>$users, 'appointments'=>$appointments]);
+    }
+
+    function updateAppointment(Request $request, $id){
+        $appointment_time = $request->input('time');
+        $appointment_date = $request->input('date');
+        $appointment_message = $request->input('message');
+        DB::update('update appointments set time = ?, date = ?, message = ? where id = ?', [$appointment_time, $appointment_date, $appointment_message,$id]);
+        return redirect(route('viewMemberAppointments'))->with('success','Appointment Updated');
     }
 
     public function destroyMemberAppointment($id) 

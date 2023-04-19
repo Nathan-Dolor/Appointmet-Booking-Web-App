@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-<div class="mt-3 vh-100">
+<div class="mt-3">
     <div class="row w-50 mx-auto">
         <?php $num_of_appointments = 0?>
         @foreach($appointments as $appointment)

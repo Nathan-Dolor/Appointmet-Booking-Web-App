@@ -33,13 +33,17 @@
     @endif 
     @yield('content')
     
+    <script>
+      $(document).ready(function(){
+        setTimeout(function(){
+            $("div.alert").remove();
+        },5000);
+    });
+    </script>
+
+    <!-- @include('include.footer') -->
+    
   </body>
-  @if(Route::currentRouteName() != 'welcome')
-  <footer class="bg-dark text-center text-white">
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    Copyright ©<span id="currentYear"></span>. All Rights Reserved. 
-    </div>
-  </footer>
-  @endif 
+  
   <script>document.getElementById("currentYear").innerHTML = new Date().getFullYear()</script>
 </html>

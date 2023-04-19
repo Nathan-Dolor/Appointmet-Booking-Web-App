@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-    <div class="container mb-3 vh-100">
+    <div class="container mb-3">
         <div class="mt-5">
             @if($errors->any())
                 <div class="col-12">
